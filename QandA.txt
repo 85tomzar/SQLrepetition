@@ -1,0 +1,188 @@
+Q:Vad är sant om VIEWS?
+1. För många vyer kan vara en nackdel vid INSERT, UPDATE och DELETE		
+2. Det kan endast finnas en primärnyckel per vy		
+3. En vy kan innehålla kolumner från andra vyer
+A:1,3
+Q:Vad är sant om TABLES?
+1. Den största tillåtna tabellstorleken är 8kB		
+2. Tabellnamn måste vara i plural		
+3. CREATE TABLE används att skapa tabeller		
+A:3
+Q:Vad är sant om INSERT?
+1. INSERT kan användas för att skapa flera rader		
+2. Man kan använda SCOPE_IDENTITY för att få reda på det senaste skapade id:t från en identity-kolumn		
+3. En fördel med att använda INSERT är att databasen slipper uppdatera index
+A:1,2
+Q:Vad är sant om UPDATE?
+1. Updates är snabbare en inserts för databasen slipper låsa tabellen		
+2. UPDATE måste skrivas för varje index som är kopplat till de kolumner som uppdateras	
+3. UPDATE används till uppdatera relationerna mellan tabellerna
+A:Inget av alternativen är sant.
+Q:Vad är sant om DELETE?
+1. En kartesisk produkt är när man kombinerar DELETE och SELECT
+2. DELETE används för att ta bort index
+3. Om WHERE utelämnas, så tas alla rader bort
+A:3
+Q:Vad är sant om PRIMARY KEYS?
+1. Personnummer är en lämplig PK för en person
+2. Adress är en lämplig PK för en person
+3. Ett nytt id skapas automatiskt vid insert för en PK
+A:1
+Q:Vad är sant om FUNCTIONS?
+1. En funktion kan inkluderas som en del i en SELECT-sats		
+2. En funktion kan inkluderas som en del i en INSERT-sats		
+3. En funktion kan inkluderas som en del i en UPDATE-sats		
+A:1
+Q:Vad är sant om NoSQL?
+1. Med NoSQL menar man databaser som körs i molnet (t.ex. i azure eller aws)	
+2. Key-value databaser kan vara ett bra alternativ vid cachening	
+3. En fördel med dokumentdatabaser är att det är enkelt definiera schemat (datastrukturen)A:2,3
+Q:Vad är exempel på aggregate functions?
+1. LEN
+2. COUNT
+3. CALC
+4. SUM
+A:2,4
+Q:Vilka av alternativen är giltliga datatyper i SQL Server?
+1. STRING
+2. NVARCHAR
+3. BIGINT
+4. INT
+A:2,3,4
+Q:Vilken eller vilka nyckelord tar bort dubletter ur ett resultat?
+1. UNIQUE
+2. FLAT
+3. ONLY
+4. DISTINCT
+A:4
+Q:Vilka påståenden om CONSTRAINTS är korrekta?
+1. NOT NULL tillåter 0
+2. UNIQUE förhindrar dubletter
+3. FOREIGN KEY förhindrar dubletter
+4. NOT NULL tillåter tomsträng
+A:1,2,4
+Q:Vad är sant om INDEX?
+1. En tabell kan ha flera index
+2. Ett index kan bestå av flera kolumner
+3. Ett index kan tillhöra flera tabeller
+A:1,2
+Q:Vad är sant om ALIAS?
+1. ALIAS är ett alternativt namn på en inre fråga
+2. ALIAS är ett alternativt namn på en kolumn
+3. ALIAS är ett alternativt namn på en användare
+A:1,2
+Q:Vad är sant om JOINS?
+1. FULL OUTER JOIN är att föredra framför RIGHT OUTER JOIN av prestandaskäl
+2. Det är tillåtet att använda både INNER JOIN och OUTER JOIN i samma fråga
+3. INNER JOIN mellan två tabeller returnerar endast rader som matchar ON-villkoret
+A:2,3
+Q:Vad är sant angående STORED PROCEDURES?
+1. Syftet med SP's är att möjliggöra ihopkoppling med olika ORM (som t.ex. Dapper eller Entety Framework)
+2. En SP kan anropa en annan SP
+3. En SP kan kasta fel.
+A:2,3
+Q:Vad är sant om normalisering?
+1. Normaliseringsreglerna är oftast ett bra stöd för att skriva bra select-sattser
+2. Normaliseringsreglerna är oftast ett bra stöd för att designa tabeller
+3. Ett av målen med normalisering är att öka redundans
+A:2
+Q:Vad är sant om WHERE?
+1. Begränsar vilka rader som hämtas
+2. Obligatorisk del av UPDATE-satts
+3. Obligatorisk del av SELECT-satts
+4. Obligatorisk del av INSERT-satts
+5. Begränsar vilka kolumner som hämtas
+A:1
+Q:Vilket eller vilka nyckelord använder wildcards?
+1. SOME
+2. AS
+3. LIKE
+4. ANY
+5. TYPE
+A:3
+Q:Vilka av alternativen är giltiga sql uttryck?
+1. SELECT NAME FROM SALES INNER JOIN PRODUCT WHERE PRODUCT.ID=SALES.PRODUCTID;
+2. SELECT ID FROM SALES;
+3. SELECT [ID] FROM SALES;
+4. SELECT * FROM SALES WHERE PRICE IS NULL;
+A:2,3,4
+Q:Vilket eller vilka alternativ väljer alla poster ur tabellen personer som har ett förnamn som innehåller bokstaven a?
+1. SELECT * FROM Personer WHERE FirstName LIKE '%a%'
+2. SELECT * FROM Personer WHERE FirstName LIKE 'a'
+3. SELECT * FROM Personer WHERE FirstName LIKE 'a%'
+4. SELECT * FROM Personer WHERE FirstName = '%a%'
+5. SELECT * FROM Personer WHERE FirstName = 'a%'
+6. SELECT * FROM Personer WHERE FirstName LIKE '%a'
+A:1
+Q:Vilken eller vilka alternativ returnerar alla kolumner från tabellen Personer?
+1. SELECT * FROM Personer
+2. SELECT ...FROM Personer
+3. SELECT * Personer
+4. SELECT Personer FROM ALL
+5. SELECT PERSONER FROM *
+A:1
+Q:Vilken eller vilka alternativ väljer alla poster ur tabellen Personer som heter "Kalle" i förnamn men inte "Anka" i efternamn?
+1. SELECT * FROM Personer WHERE FirstName + LastName = 'KalleAnka'
+2. SELECT * FROM Personer WHERE FirstName + LastName like 'Kalle%' AND FirstName + LastName like '!%Anka'
+3. SELECT * FROM Personer WHERE FirstName in ('Kalle') and LastName != 'Anka'
+4. SELECT * FROM Personer WHERE FirstName = 'Kalle' and LastName != 'Anka'
+A:3,4
+Q:I vilken ordning skrivs en SELECT-sats (GROUP BY, SELECT, FROM, WHERE, ORDER BY, HAVING)
+A:SELECT - FROM - WHERE - GROUP BY - HAVING - ORDER BY
+Q:Vad är sant?
+1. ALTER, DROP och CREATE är exempel på DDL-uttryck
+2. Defaultschemat för nya databaser heter ’dbo’
+3. En primärnyckel bör aldrig uppdateras
+4. SQL Server är en relationsdatabas från Microsoft
+5. Cosmos är en NoSQL-databas från Microsoft
+A:1,2,3,4,5
+Q:Vad är sant om PRIMARY KEYS?
+a. En PK innebär att alla värden måste vara unika i kolumnen
+b. Det får endast finnas en PK per tabell
+c. SQL Server skapar underförstått ett klustrat index på PK
+A:a,b,c
+Q:Vad är sant om FOREIGN KEYS?
+a. En FK innebär att alla värden måste vara unika i kolumnen
+b. Det får endast finnas en FK per tabell
+c. SQL Server skapar underförstått ett oklustrat index på FK
+A:Inget av alternativen är sant.
+Q:Vad är sant om FUNCTIONS?
+a. Scalar functions returnerar endast ett värde
+b. Inline functions kan ta parametrar
+c. Multi-statement kan uppdatera data
+A:a,b,c
+Q:Vad är sant om TABLES?
+a. En tabell lagrar information strukturerat i rader och kolumner
+b. En tabell kan tillhöra flera databasscheman
+c. Flera tabeller kan kopplas ihop med FOREIGN KEYS
+A:a,c
+Q:Vad är sant om VIEWS?
+a. En vy lagrar information strukturerat i rader och kolumner
+b. En vy kan tillhöra flera databasscheman
+c. Flera vyer kan kopplas ihop med FOREIGN KEYS
+A:Inget av alternativen är sant.
+Q:Hur gör du för att en ny rad automatiskt skall få ett nytt unikt id? (fritext)
+A:Man använder sig av Primary Key IDENTITY (x, x) / UNIQUE IDENTITY
+Q:Ge exempel på när du vill använda LEFT OUTER JOIN istället för INNER JOIN.  (fritext)
+A:När du vill ha fram allt från vänstra tabellen men bara matchande i högra
+Q:Ge minst 4 exempel på aggregate functions?  (fritext)
+A:AVG, SUM, MIN, MAX, COUNT
+Q:Vad kan vara nackdelar med för många och för breda INDEX? (fritext)
+A:Måste uppdatera varje index när du uppdaterar relevant data. Tar plats.
+Q:Hur fungerar relationen MÅNGA-TILL-MÅNGA? Ge gärna exempel. (fritext)
+A:En film kan ha flera actors och flera actors kan vara med i flera filmer. Detta löses genom att göra en mellantabell
+Q:Vad är en TRIGGER och på vilka sätt skiljer sig de ifrån STORED PROCEDURES? (fritext)
+A:En store procedur kör man manuellt genom att kalla på den. En trigger uppstår efter att ett visst krav möts.
+Q:Vad är skillnaden mellan WHERE och HAVING? (fritext)
+A:Med WHERE kan du inte ha aggregate functions efter select, men det går med HAVING.
+Q:Vad gör databasen när den utför en SCAN operation? (fritext)
+A:Söker igenom hela tabellen
+Q:Förklara databastyperna Relational, Key-Value, Document och Graph. (fritext) (detta stämmer ej?)
+A:Rader och kolumner, C# dictionaries, Json och XML, Noder och relationer
+Q:select Role, COUNT(TeamId) from TeamMember
+ger följande fel:
+Column 'TeamMember.Role' is invalid in the select list because it is not contained in 
+either an aggregate function or the GROUP BY clause.
+
+Vad behöver man göra för att lösa det?
+A:Sätta Role i en GROUP BY
