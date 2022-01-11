@@ -12,6 +12,7 @@ namespace SQLrepetition
             Quiz quiz = new();
             int rightAnswer = 0;
             int wrongAnswer = 0;
+            int qCounter = 0;
             ConsoleKeyInfo keyPressed;
 
             var v = File.ReadAllText("QandA.txt").Split(new string[] { "Q:", "A:" }, StringSplitOptions.None).Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
@@ -24,8 +25,10 @@ namespace SQLrepetition
 
             foreach (var item in quiz.GetQuestions())
             {
+                qCounter++;
                 Console.Clear();
                 string userAnswer;
+                Console.WriteLine($"Fråga {qCounter}/{quiz.GetQuestions().Count()}\n");
                 Console.WriteLine(item.Question);
                 Console.Write("Svar: ");
                 userAnswer = Console.ReadLine();
